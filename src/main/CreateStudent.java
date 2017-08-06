@@ -13,10 +13,10 @@ public class CreateStudent {
                 .addAnnotatedClass(Student.class)
                 .buildSessionFactory()) {
 
-            Session session=factory.getCurrentSession();
+            Session session = factory.getCurrentSession();
 
             System.out.println("Creating new student object...");
-            Student tempStudent=new Student("Dima","Pisa", "karlova1@gmail.com");
+            Student tempStudent = new Student("Dima", "Pisa", "karlova1@gmail.com");
 
             session.beginTransaction();
 
