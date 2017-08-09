@@ -4,6 +4,7 @@ import entity.Student;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
+import org.hibernate.query.Query;
 
 import java.util.List;
 
@@ -17,7 +18,11 @@ public class HQLDemo {
             for(Student student:students)
                 System.out.println(student);
 
-            students=session.createQuery("from Student s  where s.lastName='Aslan'").getResultList();
+            String hql="from Student s  where s.lastName=:lastName";
+            Query query;
+            query=session.createQuery(hql);
+            query.setParameter("lastName", "Aslan");
+            students=query.getResultList();
             for(Student student:students)
                 System.out.println(student);
 
